@@ -1,0 +1,64 @@
+<html lang="es">
+<head>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Open Sans';
+            background-image: url("https://naturalezayviajes.com/wp-content/uploads/2022/02/bosuqe-muniellos-asturias.jpg");
+        }
+        button, input{
+            border: 4px solid #f0f;
+            background-color: white;
+            border-radius: 20px;
+            margin: 15px;
+            width: 200px;
+        }
+        button:hover{
+            background-color: #f0f;
+            color: white;
+        }
+        input:hover{
+            background-color: #f0f;
+            color: white;
+        }
+        div{
+            border-radius: 20px;
+            box-shadow: 7px 7px 15px #101010;
+            background-color: white;
+            margin: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+<title>DID</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button></div>
+    <div>
+    <h2 id="bienvenida"></h2>
+    <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DIDquiz/')">DIDquiz</button>
+    <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DID-for-teachers/')">DID para profesores</button>
+    <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/Search/')">DIDweb</button></div>
+    <script>
+        let nombre = localStorage.getItem("nombre");
+        if (nombre == null) {
+            document.getElementById("bienvenida").innerHTML = "Modo invitado";
+        }
+        else {
+            document.getElementById("bienvenida").innerHTML = "Bienvenida/o " + nombre + ", qué deseas hacer hoy?";
+        }
+        function setName(){
+            let nombre = document.getElementById("nombre").value;
+            localStorage.setItem("nombre", nombre);
+        }
+    </script>
+</body>
+</html>
