@@ -57,7 +57,8 @@
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
-                        installButton.innerText = 'Instalado';
+                        installButton.innerText = 'Reinicia, por favor';
+                        setTimeout(() => { installButton.innerText = "Instalar"; }, 5000);
                     }
                     else {
                         installButton.disabled = false;
@@ -82,3 +83,4 @@
     </script>
 </body>
 </html>
+
