@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Instalar DIDapp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Compatible con chrome</h1>
+    <h2>DIDapp</h2>
+    <button id="installButton">Instalar</button>
+    <script>
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault(); 
+        deferredPrompt = e; 
+        });
+        function instalar() {
+            deferredPrompt.prompt();
+            const installButton = document.getElementById('installButton');
+            installButton.innerText = "Solicitando...";
+            deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                installButton.innerText = "Instalando...";
+            } else {
+                installButton.innerText = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
