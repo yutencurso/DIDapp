@@ -36,6 +36,8 @@
     <p><a onclick="descripcion()" style="text-decoration: underline;">Descripción</a></p>
     <button id="installButton" onclick="instalar()">Instalar</button></div>
     <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('installButton');
         userAgent = navigator.userAgent;
         if (userAgent.includes('Chrome')) {
             installButton.innerText = 'Instalar';
@@ -44,8 +46,6 @@
             installButton.disabled = true;
             installButton.innerText = 'No compatible, solo chrome';
         }
-        let deferredPrompt;
-        const installButton = document.getElementById('installButton');
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -62,7 +62,7 @@
                     else {
                         installButton.disabled = false;
                         installButton.innerText = 'Error, intentalo de nuevo';
-                        setInterval(installButton.innerText = "Instalar", 5);
+                        setTimeout(() => { installButton.innerText = "Instalar"; }, 5000);
                     }
                     deferredPrompt = null;
                 });
