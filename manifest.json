@@ -2,7 +2,7 @@
   "name": "DIDapp - la web en una app",
   "short_name": "DID",
   "description": "Usa tus servicios DID favoritos en una app",
-  "start_url": "/app.html",
+  "start_url": "https://yutencurso.github.io/DIDapp/app.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f0f",
