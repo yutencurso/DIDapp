@@ -72,5 +72,13 @@
             alert("Esta app sirve para acceder a tus servicios DID favoritos desde una app")
         }
     </script>
+    <script>
+        function abrirapp() {
+            return window.matchMedia('(display-mode: standalone)').matches
+        }
+        if (abrirapp()) {
+            window.location.href = "app.html";
+        }
+    </script>
 </body>
 </html>
