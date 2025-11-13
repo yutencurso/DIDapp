@@ -39,13 +39,6 @@
         let deferredPrompt;
         const installButton = document.getElementById('installButton');
         userAgent = navigator.userAgent;
-        if (userAgent.includes('Chrome')) {
-            installButton.innerText = 'Instalar';
-        }
-        else {
-            installButton.disabled = true;
-            installButton.innerText = 'No compatible, solo chrome';
-        }
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -74,6 +67,13 @@
         }
     </script>
     <script>
+        if (userAgent.includes('Chrome')) {
+            installButton.innerText = 'Instalar';
+        }
+        else {
+            installButton.disabled = true;
+            installButton.innerText = 'No compatible, solo chrome';
+        }
         function abrirapp() {
             return window.matchMedia('(display-mode: standalone)').matches
         }
@@ -83,4 +83,5 @@
     </script>
 </body>
 </html>
+
 
