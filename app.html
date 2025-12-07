@@ -104,7 +104,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div><p></p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button></div>
+    <div id="ajustes" style="display: none;"><p>Nombre</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button>
+    </div>
+    <div><button onclick="ajustes()">ajustes</button></div>
     <div>
     <h2 id="bienvenida"></h2>
     <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DIDquiz/')">DIDquiz</button>
@@ -113,6 +115,7 @@
     <button onclick="window.open('https://yutencurso.github.io/Links/cuenta.html')">DIDsync</button>
     </div>
     <script>
+        let ajuste = document.getElementById("ajustes");
         let nombre = localStorage.getItem("nombre");
         if (nombre == null) {
             document.getElementById("bienvenida").innerHTML = "Modo invitado";
@@ -124,7 +127,14 @@
             let nombre = document.getElementById("nombre").value;
             localStorage.setItem("nombre", nombre);
         }
+        function ajustes(){
+            if (ajuste.style.display == "none") {
+                ajuste.style.display = "flex";
+            }
+            else {
+                ajuste.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
-
