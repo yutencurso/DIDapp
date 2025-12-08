@@ -2,99 +2,116 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Open Sans';
-            background-image: url("https://naturalezayviajes.com/wp-content/uploads/2022/02/bosuqe-muniellos-asturias.jpg");
-            background-size: cover;
-        }
-        @keyframes inicio {
-            0%{
-                transform: scale(0);
-            }
-            75%{
-                transform: scale(1.3);
-            }
-            100%{
-                transform: scale(1);
-            }
-        }
-        @keyframes boton {
-            0%{
-                font-size: 16px;
-            }
-            50%{
-                font-size: 20px;
-            }
-            100%{
-                font-size: 16px;
-            }
-        }
-        button, input{
-            border: 4px solid #f0f;
-            background-color: white;
-            border-radius: 20px;
-            margin: 15px;
-            width: 200px;
-            animation: boton 0.7s;
-            animation-delay: 0.8s;
-        }
-        button:hover{
-            background-color: #f0f;
-            color: white;
-        }
-        input:hover{
-            background-color: #f0f;
-            color: white;
-        }
-        div{
-            border-radius: 20px;
-            box-shadow: 7px 7px 15px #101010;
-            background-color: white;
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            animation: inicio 1s;
-        }
-        @media (max-width: 600px) {
-    body {
-        font-size: 1.1em;
-        line-height: 1.6;
-        padding: 10px;
+    html{
+        margin: 0;
+        padding: 0;
     }
-    div {
-        width: 100%;
-        margin: 10px 0;
-        padding: 10px;
-        box-sizing: border-box;
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Open Sans';
+        background-image: url("https://naturalezayviajes.com/wp-content/uploads/2022/02/bosuqe-muniellos-asturias.jpg");
+        background-size: cover;
+        margin: 0;
+        padding: 0;
     }
-    input,textarea{
-        width: 100%;
-        max-width: 100%;
-        font-size: 1em;
-        padding: 12px;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        box-sizing: border-box;
+    @keyframes inicio {
+        0%{
+            transform: scale(0);
+        }
+        75%{
+            transform: scale(1.3);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    @keyframes boton {
+        0%{
+            font-size: 16px;
+        }
+        50%{
+            font-size: 20px;
+        }
+        100%{
+            font-size: 16px;
+        }
+    }
+    button, input{
+        border: 4px solid #f0f;
+        background-color: white;
         border-radius: 20px;
-        overflow: hidden;
+        margin: 15px;
+        width: 200px;
+        animation: boton 0.7s;
+        animation-delay: 0.8s;
     }
-    #mensaje {
-        font-size: 0.9em;
-        padding: 10px;
+    button:hover{
+        background-color: #f0f;
+        color: white;
     }
-    button {
-        min-height: 48px;
-        margin-top: 15px;
+    input:hover{
+        background-color: #f0f;
+        color: white;
     }
-    textarea {
-        min-height: 150px;
-        resize: none;
+    div{
+        border-radius: 20px;
+        box-shadow: 7px 7px 15px #101010;
+        background-color: white;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: inicio 1s;
+    }
+    .menu{
+        position: fixed;
+        top: 40%;
+        left: 0px;
+        z-index: 1000;
+        backdrop-filter: blur(50px);
+        max-width: 0.8cm;
+        border: none;
+        background-image: linear-gradient(45deg, #f00, #f0f);
+        min-height: 0.8cm;
+    }
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding: 10px;
+        }
+        div {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        input,textarea{
+            width: 100%;
+            max-width: 100%;
+            font-size: 1em;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        #mensaje {
+            font-size: 0.9em;
+            padding: 10px;
+        }
+        button {
+            min-height: 48px;
+            margin-top: 15px;
+        }
+        textarea {
+            min-height: 150px;
+            resize: none;
         }
     }
     </style>
@@ -104,9 +121,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="ajustes" style="display: none;"><p>Cambiar perfil</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button>
+    <button class="menu" onclick="abrirMenu()">☰</button>
+    <div id="menu" style="display: none; padding: 5px;">
+        <h2>Menú</h2>
+        <a href="settings app.html">Ajustes</a>
     </div>
-    <div><button onclick="ajustes()">ajustes</button></div>
     <div>
     <h2 id="bienvenida"></h2>
     <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DIDquiz/')">DIDquiz</button>
@@ -115,7 +134,6 @@
     <button onclick="window.open('https://yutencurso.github.io/Links/cuenta.html')">DIDsync</button>
     </div>
     <script>
-        let ajuste = document.getElementById("ajustes");
         let nombre = localStorage.getItem("nombre");
         if (nombre == null) {
             document.getElementById("bienvenida").innerHTML = "Modo invitado";
@@ -123,17 +141,12 @@
         else {
             document.getElementById("bienvenida").innerHTML = "Te damos la bienvenida, " + nombre + ", ¿qué deseas hacer hoy?";
         }
-        function setName(){
-            let nombre = document.getElementById("nombre").value;
-            localStorage.setItem("nombre", nombre);
-            document.getElementById("bienvenida").innerHTML = "Te damos la bienvenida, " + nombre + ", ¿qué deseas hacer hoy?";
-        }
-        function ajustes(){
-            if (ajuste.style.display == "none") {
-                ajuste.style.display = "flex";
-            }
-            else {
-                ajuste.style.display = "none";
+        function abrirMenu(){
+            let menu = document.getElementById("menu");
+            if(menu.style.display === "none"){
+                menu.style.display = "flex";
+            } else {
+                menu.style.display = "none";
             }
         }
     </script>
