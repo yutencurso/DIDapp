@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>ajustes</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Open Sans';
+        background-image: url("https://naturalezayviajes.com/wp-content/uploads/2022/02/bosuqe-muniellos-asturias.jpg");
+        background-size: cover;
+    }
+    @keyframes inicio {
+        0%{
+            transform: scale(0);
+        }
+        75%{
+            transform: scale(1.3);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    @keyframes boton {
+        0%{
+            font-size: 16px;
+        }
+        50%{
+            font-size: 20px;
+        }
+        100%{
+            font-size: 16px;
+        }
+    }
+    button, input{
+        border: 4px solid #f0f;
+        background-color: white;
+        border-radius: 20px;
+        margin: 15px;
+        width: 200px;
+        animation: boton 0.7s;
+        animation-delay: 0.8s;
+    }
+    button:hover{
+        background-color: #f0f;
+        color: white;
+    }
+    input:hover{
+        background-color: #f0f;
+        color: white;
+    }
+    div{
+        border-radius: 20px;
+        box-shadow: 7px 7px 15px #101010;
+        background-color: white;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: inicio 1s;
+    }
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding: 10px;
+        }
+        div {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        input,textarea{
+            width: 100%;
+            max-width: 100%;
+            font-size: 1em;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        #mensaje {
+            font-size: 0.9em;
+            padding: 10px;
+        }
+        button {
+            min-height: 48px;
+            margin-top: 15px;
+        }
+        textarea {
+            min-height: 150px;
+            resize: none;
+        }
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="manifest" href="manifest.html">
+</head>
+<body>
+    <div><p>Cambiar perfil</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button></div>
+    <script>
+        function setName(){
+            let nombre = document.getElementById("nombre").value;
+            localStorage.setItem("nombre", nombre);
+        }
+    </script>
+</body>
+</html>
