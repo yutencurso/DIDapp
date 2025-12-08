@@ -65,10 +65,6 @@
         function descripcion() {
             alert("Esta app sirve para acceder a tus servicios DID favoritos desde una app")
         }
-    </script>
-    <script>
-        const installButton = document.getElementById('installButton')
-        const userAgent = navigator.userAgent;
         if (userAgent.includes('Safari')) {
             installButton.innerText = 'Incompatible';
             installButton.disabled = true;
@@ -92,6 +88,7 @@
     </script>
 </body>
 </html>
+
 
 
 
