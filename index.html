@@ -74,14 +74,16 @@
             installButton.disabled = true;
             installButton.innerText = 'No compatible, solo chrome';
         }
-        function abrirapp() {
-            return window.matchMedia('(display-mode: standalone)').matches
-        }
-        if (abrirapp()) {
-            window.location.href = "app.html";
-        }
+        const mediaQuery = window.matchMedia('(display-mode: standalone)');
+        function handleDisplayModeChange(event) {
+            if (event.matches) {
+                window.location.href = "app.html";
+            }
+            mediaQuery.addEventListener('change', handleDisplayModeChange);
+            handleDisplayModeChange(mediaQuery);
     </script>
 </body>
 </html>
+
 
 
