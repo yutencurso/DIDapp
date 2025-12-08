@@ -67,20 +67,21 @@
         }
     </script>
     <script>
-        if (userAgent.includes('Chrome')) {
-            installButton.innerText = 'Instalar';
+        const installButton = document.getElementById('installButton')
+        const userAgent = navigator.userAgent;
+        if (userAgent.includes('Safari')) {
+            installButton.innerText = 'Incompatible';
+            installButton.disabled = true;
         }
         else {
-            installButton.disabled = true;
-            installButton.innerText = 'No compatible, solo chrome';
+            installButton.innerText = 'Instalar';
         }
         const mediaQuery = window.matchMedia('(display-mode: standalone)');
         function handleDisplayMode(event) {
             if (event.matches) {
-                console.log("Detectado: Modo PWA Instalada. Redireccionando a app.html...");
                 window.location.href = "app.html"; 
             } else {
-                console.log("Detectado: Modo Navegador Web. Permanece en esta página.");
+                console.log('No vas a ser redireccionando')
             }
         }
         mediaQuery.addEventListener('change', handleDisplayMode);
@@ -91,6 +92,7 @@
     </script>
 </body>
 </html>
+
 
 
 
