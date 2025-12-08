@@ -104,12 +104,21 @@
 <link rel="manifest" href="manifest.html">
 </head>
 <body>
-    <div><p>Cambiar perfil</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button></div>
+    <div>
+        <button onclick="volver()">Volver</button>
+        <p>Cambiar perfil</p>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <button onclick="setName()">Guardar</button>
+    </div>
     <script>
         function setName(){
             let nombre = document.getElementById("nombre").value;
             localStorage.setItem("nombre", nombre);
         }
+        function volver(){
+            window.location.href = "app.html";
+        }
     </script>
 </body>
+
 </html>
