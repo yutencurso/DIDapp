@@ -85,9 +85,13 @@
         }
         mediaQuery.addEventListener('change', handleDisplayMode);
         handleDisplayMode(mediaQuery);
+        window.addEventListener('appinstalled', function(){
+            installButton.innerText = "abrir";
+        });
     </script>
 </body>
 </html>
+
 
 
 
