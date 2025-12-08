@@ -104,7 +104,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="ajustes" style="display: none;"><p>Nombre</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button>
+    <div id="ajustes" style="display: none;"><p>Cambiar perfil</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button>
     </div>
     <div><button onclick="ajustes()">ajustes</button></div>
     <div>
@@ -126,6 +126,7 @@
         function setName(){
             let nombre = document.getElementById("nombre").value;
             localStorage.setItem("nombre", nombre);
+            document.getElementById("bienvenida").innerHTML = "Te damos la bienvenida, " + nombre + ", ¿qué deseas hacer hoy?";
         }
         function ajustes(){
             if (ajuste.style.display == "none") {
