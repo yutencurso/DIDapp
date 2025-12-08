@@ -75,15 +75,20 @@
             installButton.innerText = 'No compatible, solo chrome';
         }
         const mediaQuery = window.matchMedia('(display-mode: standalone)');
-        function handleDisplayModeChange(event) {
+        function handleDisplayMode(event) {
             if (event.matches) {
-                window.location.href = "app.html";
+                console.log("Detectado: Modo PWA Instalada. Redireccionando a app.html...");
+                window.location.href = "app.html"; 
+            } else {
+                console.log("Detectado: Modo Navegador Web. Permanece en esta página.");
             }
-            mediaQuery.addEventListener('change', handleDisplayModeChange);
-            handleDisplayModeChange(mediaQuery);
+        }
+        mediaQuery.addEventListener('change', handleDisplayMode);
+        handleDisplayMode(mediaQuery);
     </script>
 </body>
 </html>
+
 
 
 
