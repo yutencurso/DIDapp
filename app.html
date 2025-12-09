@@ -39,6 +39,14 @@
             font-size: 16px;
         }
     }
+    @keyframes menu {
+        0%{
+            transform: translateX(-100vw);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
     button, input{
         border: 4px solid #f0f;
         background-color: white;
@@ -76,6 +84,15 @@
         width: 0.8cm;
         border: none;
         height: 0.8cm;
+        animation: menu 1.5s;
+    }
+    .listaMenu{
+        z-index: 100;
+        position: fixed;
+        top: 10px;
+        left: 0px;
+        animation: menu 0.8s;
+        padding: 10px;
     }
     @media (max-width: 600px) {
         body {
@@ -112,6 +129,9 @@
             min-height: 150px;
             resize: none;
         }
+        .menu{
+            border: 2px solid #f0f;
+        }
     }
     </style>
 <title>DID</title>
@@ -121,7 +141,7 @@
 </head>
 <body>
     <button class="menu" onclick="abrirMenu()">☰</button>
-    <div id="menu" style="display: none; padding: 5px;">
+    <div id="menu" class="listaMenu" style="display: none;">
         <h2>Menú</h2>
         <a href="settings app.html">Ajustes</a>
     </div>
@@ -151,4 +171,3 @@
     </script>
 </body>
 </html>
-
