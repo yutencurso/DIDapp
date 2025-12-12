@@ -17,6 +17,27 @@
         margin: 0;
         padding: 0;
     }
+    .logo{
+        background-image: url("Logo 512.png");
+        position: fixed;
+        top: 40%;
+        left: auto;
+        right: auto;
+        width: 150px;
+        height: 150pc;
+        animation: logo 2s;
+    }
+    @keyframes logo {
+        0%{
+            transform: scale(0);
+        }
+        50%{
+            transform: scale(1);
+        }
+        100%{
+            transform: scale(0);
+        }
+    }
     @keyframes inicio {
         0%{
             transform: scale(0);
@@ -73,7 +94,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        animation: inicio 1s;
+        animation: inicio 3s;
     }
     .menu{
         position: fixed;
@@ -145,6 +166,7 @@
         <h2>Menú</h2>
         <a href="settings app.html">Ajustes</a>
     </div>
+    <div class="logo"></div>
     <div>
     <h2 id="bienvenida"></h2>
     <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DIDquiz/')">DIDquiz</button>
