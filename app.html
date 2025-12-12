@@ -167,12 +167,12 @@
 </head>
 <body>
     <button class="menu" onclick="abrirMenu()">☰</button>
-    <div id="menu" class="listaMenu" style="display: none;">
+    <div id="menu" class="listaMenu">
         <h2>Menú</h2>
         <a href="settings app.html">Ajustes</a>
     </div>
-    <div class="logo"></div>
-    <div>
+    <div class="logo" style="display: none;"></div>
+    <div style="display: none;" id="contenedor">
     <h2 id="bienvenida"></h2>
     <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DIDquiz/')">DIDquiz</button>
     <button onclick="window.open('https://did-y-sus-servicios-digitales.github.io/DID-for-teachers/')">DID para profesores</button>
@@ -195,6 +195,14 @@
                 menu.style.display = "none";
             }
         }
+        const logo = document.getElementsByClassName("logo");
+        logo.addEventListener('animationend', function(){
+            logo.style.display = "none";
+        });
+        const contenedores = document.getElementById("contenedor");
+        contenedores.addEventListener('animationstart', function(){
+            contenedores.style.display = "flex";
+        })
     </script>
 </body>
 </html>
