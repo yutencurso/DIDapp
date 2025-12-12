@@ -65,13 +65,6 @@
         function descripcion() {
             alert("Esta app sirve para acceder a tus servicios DID favoritos desde una app")
         }
-        if (userAgent.includes('Safari')) {
-            installButton.innerText = 'Incompatible';
-            installButton.disabled = true;
-        }
-        else {
-            installButton.innerText = 'Instalar';
-        }
         const mediaQuery = window.matchMedia('(display-mode: standalone)');
         function handleDisplayMode(event) {
             if (event.matches) {
