@@ -29,20 +29,7 @@
         background-color: #fff;
     }
 </style>
-    <script>
-  const mesActual = new Date().getMonth(); // 0 = Enero, 11 = Diciembre
-  const link = document.createElement('link');
-  link.rel = 'manifest';
-
-  // Si es Diciembre (11), usa el de navidad. Si no, el normal.
-  if (mesActual === 11) {
-    link.href = '/manifest-navidad.json';
-  } else {
-    link.href = '/manifest.json';
-  }
-
-  document.head.appendChild(link);
-</script>
+    <link rel="manifest" href="manifest-n.json">
 </head>
 <body><div>
     <h1>DIDapp</h1>
@@ -92,6 +79,7 @@
     </script>
 </body>
 </html>
+
 
 
 
