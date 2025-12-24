@@ -101,7 +101,20 @@
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="manifest" href="manifest.html">
+<script>
+  const mesActual = new Date().getMonth(); // 0 = Enero, 11 = Diciembre
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+
+  // Si es Diciembre (11), usa el de navidad. Si no, el normal.
+  if (mesActual === 11) {
+    link.href = '/manifest-navidad.json';
+  } else {
+    link.href = '/manifest.json';
+  }
+
+  document.head.appendChild(link);
+</script>
 </head>
 <body>
     <div><button onclick="volver()">Volver</button><p>Cambiar perfil</p><input type="text" id="nombre" placeholder="Escribe tu nombre"><button onclick="setName()">Guardar</button></div>
@@ -117,3 +130,4 @@
 </body>
 
 </html>
+
