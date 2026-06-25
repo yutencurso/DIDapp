@@ -83,14 +83,14 @@
         </style>
     </div>
     <br>
-    <form id="logIn" onsubmit="registrar()">
+    <form id="logIn">
         <h1>Crear cuenta</h1>
         <input type="text" id="nombre" placeholder="Nombre">
         <input type="text" id="contraseña" placeholder="Contraseña">
         <input type="email" id="mail" placeholder="Correo electrónico">
-        <input type="submit">
+        <input type="submit" id="loginbtn">
     </form>
-    <form id="signIn" onsubmit="iniciarSesion()">
+    <form id="signIn">
         <h1>Iniciar sesión</h1>
         <input type="text" id="nombree" placeholder="Nombre">
         <input type="text" id="contraseñae" placeholder="Contraseña">
@@ -117,6 +117,7 @@
         const type = urlParams.get('type');
         const dbclient = supabase.createClient(supabaseUrl, supabaseKey);
         async function registrar() {
+            document.getElementById('loginbtn').onclick= "";
             mostrarMensaje('Cargando...');
             const { data, error } = await dbclient
                 .from('cuentas') // Debe llamarse igual que tu tabla en Supabase
@@ -133,6 +134,9 @@
                     document.getElementById('signIn').style.border = 'none';
                 }, 3000)
             }
+            setTimeout(() => {
+                document.getElementById('loginbtn').onclick = "registrar()";
+            }, 2000)
         }
         async function iniciarSesion() {
             mostrarMensaje('Cargando...');
