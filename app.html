@@ -1,6 +1,7 @@
 <html lang="es">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <style>
     html{
         margin: 0;
@@ -122,6 +123,32 @@
         animation: menu 0.8s;
         padding: 10px;
     }
+    .menu {
+        display: inline-block;
+        padding: 8px 15px;
+        color: #000;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .max {
+        position: fixed;
+        top: 100px; 
+        z-index: 3000;
+        display: none;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+        width: 100%;
+        background: transparent;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-sizing: border-box;
+    }
     @media (max-width: 600px) {
         body {
             font-size: 1.1em;
@@ -160,14 +187,36 @@
         .menu{
             border: 2px solid #f0f;
         }
+        .max {
+            position: fixed;
+            top: 100px; 
+            z-index: 3000;
+            display: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            width: 100%;
+            background: transparent;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-sizing: border-box;
+        }
     }
     </style>
 <title>DID</title>
     <link rel="manifest" href="manifest.json">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle" />
 </head>
 <body>
+    <div id="cuenta" class="max" title="cuenta" style="display: none;">
+        <a href="cuenta.html?type=sync" class="menu">sync</a>
+        <a href="cuenta.html?type=teachers" class="menu">Tablón para profes</a>
+        <a href="#" onclick="logOff()" class="menu">Cerrar sesión</a>
+    </div>
+    <div id="avatar" title="cuenta" onclick="cuentaContract()" id="cuentaToogleBTN" style="font-size: 50px; cursor: pointer; user-select: none;"></div>
     <button class="menu" onclick="abrirMenu()">☰</button>
     <div id="menu" class="listaMenu" style="display: none;">
         <h2>Menú</h2>
@@ -182,12 +231,33 @@
     <button onclick="window.open('https://yutencurso.github.io/Links/cuenta.html')">DIDsync</button>
     </div>
     <script>
+        const avatar = document.getElementById('avatar');
+        const usuario = localStorage.getItem('nombreDIDaccount');
+        if (usuario) {
+            avatar.innerHTML = '<div id="perfil">' + usuario.charAt(0).toUpperCase() + '</div>';
+            document.write('<script src="cuentaIcon.js"><\/script>');
+        } else {
+            avatar.innerHTML = '<span class="material-symbols-outlined">account_circle</span>'
+        }
         let nombre = localStorage.getItem("nombre");
         if (nombre == null) {
             document.getElementById("bienvenida").innerHTML = "Modo invitado";
         }
         else {
             document.getElementById("bienvenida").innerHTML = "Te damos la bienvenida, " + nombre + ", ¿qué deseas hacer hoy?";
+        }
+        function cuentaContract() {
+            const serviciosSection = document.getElementById('cuenta');
+            if (!localStorage.getItem("nombreDIDaccount")) {
+                window.location.href = "cuenta.html?type=index"
+            } else {
+                if (serviciosSection.style.display === 'none') {
+                    serviciosSection.style.display = 'flex';
+                    document.getElementById('servicios').style.display = 'none';
+                } else {
+                    serviciosSection.style.display = 'none';
+                }
+            }
         }
         function abrirMenu(){
             let menu = document.getElementById("menu");
@@ -206,6 +276,11 @@
             contenedores.style.visibility = "visible";
             contenedores.style.display = "flex";
         });
+        function logOff() {
+            localStorage.removeItem('nombreDIDaccount');
+            localStorage.removeItem('passDIDaccount');
+            window.location.href = 'app.html';
+        }
     </script>
 </body>
 </html>
